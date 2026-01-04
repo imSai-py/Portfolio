@@ -1,0 +1,19 @@
+##############################
+# Python venv (in-place)
+##############################
+Scripts/
+Lib/
+Include/
+pyvenv.cfg
+
+# Common virtualenv names (if created as a folder)
+.venv/
+venv/
+
+# Bytecode / cache
+__pycache__/
+*.py[cod]
+
+# OS junk
+.DS_Store
+Thumbs.db
