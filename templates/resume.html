@@ -337,8 +337,7 @@
 
                     <!-- Download Button -->
                     <div class="resume-actions resume-fade-in delay-2">
-                        <a href="./static/assets/resume.pdf" download="Sai_Lakshman_Resume.pdf" class="btn-download"
-                            id="download-resume-btn">
+                        <a href="#" onclick="downloadResume(event)" class="btn-download" id="download-resume-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                             </svg>
@@ -372,8 +371,7 @@
                             <h3>Unable to display the resume</h3>
                             <p>Your browser does not support embedded PDF viewing.<br>Click the button below to download
                                 and view it.</p>
-                            <a href="./static/assets/resume.pdf" download="Sai_Lakshman_Resume.pdf"
-                                class="btn-download">
+                            <a href="#" onclick="downloadResume(event)" class="btn-download">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                                 </svg>
@@ -389,6 +387,33 @@
 
 
     <script>
+        // Download resume as a blob to ensure correct filename on all platforms
+        function downloadResume(e) {
+            e.preventDefault();
+            var pdfUrl = './static/assets/resume.pdf';
+            var fileName = 'Sai_Lakshman_Resume.pdf';
+
+            fetch(pdfUrl)
+                .then(function (response) {
+                    if (!response.ok) throw new Error('PDF not found');
+                    return response.blob();
+                })
+                .then(function (blob) {
+                    var url = window.URL.createObjectURL(blob);
+                    var a = document.createElement('a');
+                    a.href = url;
+                    a.download = fileName;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(function () {
+                    // Fallback: open the PDF directly if blob download fails
+                    window.open(pdfUrl, '_blank');
+                });
+        }
+
         document.addEventListener("DOMContentLoaded", function (event) {
             navActivePage();
 
