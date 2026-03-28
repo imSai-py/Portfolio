@@ -45,7 +45,7 @@ const workDetails = {
     heroImg: strechImg3,
     description: 'Portfolio is a web application that allows users to showcase their work and projects. It is a simple and easy-to-use application that helps users to keep track of their work and projects.',
     quote: '"Portfolio: Showcase your work in style."',
-    liveUrl: 'https://portfolio-qrsimzlbf-sai-lakshmans-projects-2627b503.vercel.app/',
+    liveUrl: 'https://portfolio-sai-lakshmans-projects-2627b503.vercel.app/',
     codeUrl: 'https://github.com/imSai-py/Portfolio',
     gallery: [],
     fullImg: { img: work003_03, label: 'Home Page' },
