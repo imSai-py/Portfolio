@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
+import galaxyVideo from '../assets/videos/galaxy_loop.mp4'
 import nebulaImg from '../assets/images/Nebula.jpg'
 
 const typedStrings = [
@@ -130,12 +131,16 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden px-8 py-16"
     >
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="hero-bg-overlay absolute inset-0 z-0">
-        <img
+        <video
           ref={bgRef}
-          src={nebulaImg}
-          alt="Nebula Background"
+          src={galaxyVideo}
+          poster={nebulaImg}
+          autoPlay
+          loop
+          muted
+          playsInline
           className="hero-bg-media absolute inset-0 w-full h-full object-cover object-center z-[-1]"
           aria-hidden="true"
         />
