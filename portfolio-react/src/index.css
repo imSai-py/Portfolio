@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+/* =====================================================
+   PORTFOLIO — Custom CSS for Tailwind v4
+   Design tokens via @theme and custom animations/effects
+   that cannot be achieved with utility classes alone.
+   ===================================================== */
+
+@theme {
+  /* Colors */
+  --color-bg: #0a0a0f;
+  --color-bg-alt: #0e0e16;
+  --color-surface: #12121a;
+  --color-surface-alt: #181824;
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.06);
+  --color-glass-hover: rgba(255, 255, 255, 0.06);
+  --color-primary: #6c63ff;
+  --color-primary-glow: rgba(108, 99, 255, 0.15);
+  --color-accent: #00d4aa;
+  --color-accent-glow: rgba(0, 212, 170, 0.15);
+  --color-text: #e8e8ef;
+  --color-text-muted: #8888a0;
+  --color-text-dim: #555568;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-error: #ff6b6b;
+  --color-success: #00d4aa;
+
+  /* Font families */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Animations */
+  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  --animate-fade-in-down: fadeInDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  --animate-wave: wave 2.5s infinite;
+  --animate-blink: blink 0.8s step-end infinite;
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60%, 100% { transform: rotate(0deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes skillFill {
+  from { width: 0; }
+  to { width: var(--skill-level); }
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: linear-gradient(135deg, #0f172a, #020617);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ===== Animated Background Mesh ===== */
+.bg-mesh::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 20% 20%, var(--color-primary-glow), transparent 40%),
+    radial-gradient(circle at 80% 80%, var(--color-accent-glow), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(108, 99, 255, 0.05), transparent 50%);
+}
+
+/* ===== Hero Background ===== */
+.hero-bg-media {
+  transform: scale(1.04);
+  will-change: transform;
+}
+
+.hero-bg-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 15, 25, 0.65), rgba(2, 6, 23, 0.85));
+}
+
+/* Hero glow effect behind text */
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(108, 99, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== Gradient Text ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Typed Cursor ===== */
+.typed-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background: var(--color-primary);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: var(--animate-blink);
+}
+
+/* ===== Buttons ===== */
+.btn-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  box-shadow: 0 4px 20px var(--color-primary-glow);
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 8px 30px rgba(108, 99, 255, 0.35);
+}
+
+.btn-glass {
+  background: transparent;
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(8px);
+}
+
+.btn-glass:hover {
+  background: var(--color-glass-hover);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Nav Active State ===== */
+.nav-active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(99, 102, 241, 0.5);
+  border-bottom-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.5), inset 0 0 12px rgba(6, 182, 212, 0.15);
+  transform: scale(1.05);
+}
+
+/* ===== Decorative Image Ring ===== */
+.about-image-ring::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border: 1px solid var(--color-glass-border);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.about-image-ring::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  filter: blur(60px);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* ===== Skill Bar Animation ===== */
+.skill-bar-fill {
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-bar-fill.animate {
+  width: var(--skill-level) !important;
+}
+
+/* ===== Section Label Lines ===== */
+.section-label::before,
+.section-label::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--color-primary);
+  opacity: 0.4;
+}
+
+/* ===== Project Overlay ===== */
+.project-overlay {
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 15, 0.8) 100%);
+}
+
+/* ===== Form Focus ===== */
+.form-focus:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-glow);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ===== Resume Viewer macOS Dots ===== */
+.topbar-dot-red { background: #ff5f57; }
+.topbar-dot-yellow { background: #febc2e; }
+.topbar-dot-green { background: #28c840; }
+
+/* ===== Reveal Animations ===== */
+.reveal-base {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-base.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive Mobile Nav Styles ===== */
+@media (max-width: 768px) {
+  .mobile-nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 3rem;
+    background: rgba(10, 15, 30, 0.7);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    transition: right 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+  }
+
+  .mobile-nav-menu.open {
+    right: 0;
+  }
+}
