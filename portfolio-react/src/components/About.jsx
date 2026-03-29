@@ -25,15 +25,6 @@ function ReactIcon() {
   )
 }
 
-function NodeIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className="w-6 h-6">
-      <circle cx="16" cy="16" r="14" fill="#339933"/>
-      <text x="16" y="21" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="sans-serif">N</text>
-    </svg>
-  )
-}
-
 function PythonIcon() {
   return (
     <svg viewBox="0 0 32 32" className="w-6 h-6">
@@ -71,15 +62,11 @@ function CSSIcon() {
   )
 }
 
-function FigmaIcon() {
+function StitchIcon() {
   return (
     <svg viewBox="0 0 32 32" className="w-6 h-6">
-      <rect width="32" height="32" rx="6" fill="#1E1E1E"/>
-      <circle cx="12" cy="10" r="4" fill="#F24E1E"/>
-      <circle cx="20" cy="10" r="4" fill="#FF7262"/>
-      <circle cx="12" cy="16" r="4" fill="#A259FF"/>
-      <circle cx="20" cy="16" r="4" fill="#1ABCFE"/>
-      <circle cx="12" cy="22" r="4" fill="#0ACF83"/>
+      <rect width="32" height="32" rx="6" fill="#2A2A2A"/>
+      <path d="M10 16L14 12L22 20M10 16L14 20L22 12" stroke="#00D4AA" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
@@ -94,11 +81,17 @@ function GitIcon() {
   )
 }
 
-function CSharpIcon() {
+function AIIcon() {
   return (
     <svg viewBox="0 0 32 32" className="w-6 h-6">
-      <rect width="32" height="32" rx="4" fill="#68217A"/>
-      <text x="16" y="21" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="sans-serif">C#</text>
+      <defs>
+        <linearGradient id="aiGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#00D4AA"/>
+          <stop offset="100%" stopColor="#B87BE4"/>
+        </linearGradient>
+      </defs>
+      <rect width="32" height="32" rx="6" fill="url(#aiGrad)"/>
+      <path d="M16 7 L18 14 L25 16 L18 18 L16 25 L14 18 L7 16 L14 14 Z" fill="white" />
     </svg>
   )
 }
@@ -106,25 +99,23 @@ function CSharpIcon() {
 const iconMap = {
   JavaScript: JSIcon,
   React: ReactIcon,
-  'Node.js': NodeIcon,
   Python: PythonIcon,
   HTML: HTMLIcon,
   CSS: CSSIcon,
-  Figma: FigmaIcon,
+  Stitch: StitchIcon,
   Git: GitIcon,
-  'C#': CSharpIcon,
+  'AI-assisted Development': AIIcon,
 }
 
 const skills = [
   { name: 'JavaScript', level: '80%' },
   { name: 'React', level: '70%' },
-  { name: 'Node.js', level: '65%' },
   { name: 'Python', level: '80%' },
   { name: 'HTML', level: '95%' },
   { name: 'CSS', level: '90%' },
-  { name: 'Figma', level: '60%' },
+  { name: 'Stitch', level: '60%' },
   { name: 'Git', level: '75%' },
-  { name: 'C#', level: '55%' },
+  { name: 'AI-assisted Development', level: '85%' },
 ]
 
 export default function About() {

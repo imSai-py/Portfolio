@@ -3,287 +3,124 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
-
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UserProfileManagement — A web app for managing user profiles.">
+  <meta name="author" content="Sai Lakshman">
 
   <link rel="apple-touch-icon" sizes="180x180" href="./static/assets/apple-icon-180x180.png">
   <link href="./static/assets/favicon.ico" rel="icon">
 
-  <title>Sai Lakshman | Computer Science Student & Web Developer</title>
+  <title>UserProfileManagement | Sai Lakshman</title>
 
-  <link href="./static/main.3f6952e4.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
 
-  <style>
-    /* ===== Project Action Buttons ===== */
-    .project-actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 32px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .btn-project {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 30px;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      border-radius: 50px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      position: relative;
-      overflow: hidden;
-      border: none;
-    }
-
-    .btn-project svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .btn-project span,
-    .btn-project svg {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Live Demo — filled gradient */
-    .btn-live-demo {
-      color: #fff;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      box-shadow: 0 4px 15px rgba(15, 52, 96, 0.3);
-    }
-
-    .btn-live-demo::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #e94560 100%);
-      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: 0;
-    }
-
-    .btn-live-demo:hover::before {
-      left: 0;
-    }
-
-    .btn-live-demo:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(15, 52, 96, 0.45);
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .btn-live-demo:hover svg {
-      transform: translateX(3px);
-    }
-
-    .btn-live-demo:active {
-      transform: translateY(-1px);
-    }
-
-    /* View Code — outline style */
-    .btn-view-code {
-      color: #1a1a2e;
-      background: transparent;
-      border: 2px solid #1a1a2e;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .btn-view-code::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: 0;
-    }
-
-    .btn-view-code:hover::before {
-      left: 0;
-    }
-
-    .btn-view-code:hover {
-      color: #fff;
-      border-color: transparent;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(26, 26, 46, 0.35);
-      text-decoration: none;
-    }
-
-    .btn-view-code:hover svg {
-      transform: rotate(8deg) scale(1.1);
-    }
-
-    .btn-view-code:active {
-      transform: translateY(-1px);
-    }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-      .project-actions {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .btn-project {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-        padding: 13px 24px;
-        font-size: 13px;
-      }
-    }
-  </style>
+  <link href="./static/styles.css" rel="stylesheet">
 </head>
 
-<body class="">
-  <div id="site-border-left"></div>
-  <div id="site-border-right"></div>
-  <div id="site-border-top"></div>
-  <div id="site-border-bottom"></div>
-  <!-- Add your content of header -->
-  <header>
-    <nav class="navbar  navbar-fixed-top navbar-default">
-      <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
-          aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+<body>
 
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav ">
-            <li><a href="./index.html" title="">01 : Home</a></li>
-            <li><a href="./works.html" title="">02 : Works</a></li>
-            <li><a href="./about.html" title="">03 : About me</a></li>
-            <li><a href="./contact.html" title="">04 : Contact</a></li>
-            <li><a href="./resume.html" title="">05 : Resume</a></li>
-          </ul>
+  <div class="bg-mesh" aria-hidden="true"></div>
 
-
-          <ul class="nav navbar-nav navbar-right navbar-small visible-md visible-lg">
-            <li><a href="./work.html" title="">001</a></li>
-            <li><a href="./work2.html" title="" class="active">002</a></li>
-            <li><a href="./work3.html" title="">003</a></li>
-          </ul>
-
-
-        </div>
-      </div>
-    </nav>
-  </header>
-  <div class="section-container">
+  <!-- ===== Navigation ===== -->
+  <nav class="navbar" id="navbar">
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <img src="./static/assets/images/Stretch-img2.jpg" class="img-responsive" alt="">
-          <div class="card-container">
-            <div class="text-center">
-              <h1 class="h2">UserProfileManagement</h1>
-            </div>
-            <p>UserProfileManagement is a web application that allows users to manage their profiles and update their
-              information. It is a simple and easy-to-use application that helps users to keep track of their profiles
-              and update their information.</p>
+      <a href="./index.html" class="nav-brand" aria-label="Home">
+        <span class="brand-dot"></span>
+        SL
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="./index.html" class="nav-link">Home</a></li>
+        <li><a href="./works.html" class="nav-link">Works</a></li>
+        <li><a href="./about.html" class="nav-link">About</a></li>
+        <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        <li><a href="./resume.html" class="nav-link">Resume</a></li>
+      </ul>
 
-            <blockquote>
-              <p>"UserProfileManagement: The effortless way to manage your profiles and update your information."</p>
-              <small class="pull-right">Sai Lakshman</small>
-            </blockquote>
+      <div class="work-subnav">
+        <a href="./work.html">001</a>
+        <a href="./work2.html" class="active">002</a>
+        <a href="./work3.html">003</a>
+      </div>
 
-            <!-- Project Action Buttons -->
-            <div class="project-actions">
-              <a href="https://userprofilemanagement-mmeq.onrender.com" target="_blank" rel="noopener noreferrer"
-                class="btn-project btn-live-demo" id="live-demo-userprofile">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
-                </svg>
-                <span>Live Demo</span>
-              </a>
-              <a href="https://github.com/imSai-py/UserProfileManagement" target="_blank" rel="noopener noreferrer"
-                class="btn-project btn-view-code" id="view-code-userprofile">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                </svg>
-                <span>View Code</span>
-              </a>
-            </div>
-          </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
 
+  <!-- ===== Work Detail ===== -->
+  <section class="work-detail">
+    <div class="container">
 
+      <div class="work-detail-hero reveal">
+        <img src="./static/assets/images/Stretch-img2.jpg" alt="UserProfileManagement Overview">
+      </div>
 
-          <div class="col-md-8 col-md-offset-2 section-container-spacer">
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-                <img src="./static/assets/images/work002-01.jpg" class="img-responsive" alt="">
-                <p>Register Page</p>
-              </div>
-              <div class="col-xs-12 col-md-6">
-                <img src="./static/assets/images/work002-02.jpg" class="img-responsive" alt="">
-                <p>Login Page</p>
-              </div>
-            </div>
-          </div>
+      <div class="work-detail-content">
+        <h1 class="reveal">UserProfileManagement</h1>
+        <p class="reveal">UserProfileManagement is a web application that allows users to manage their profiles and
+          update their
+          information. It is a simple and easy-to-use application that helps users to keep track of their profiles
+          and update their information.</p>
 
-          <div class="col-xs-12">
-            <img src="./static/assets/images/work002-03.jpg" class="img-responsive" alt="">
-            <p>Home Page</p>
-          </div>
+        <blockquote class="reveal">
+          <p>"UserProfileManagement: The effortless way to manage your profiles and update your information."</p>
+          <small>— Sai Lakshman</small>
+        </blockquote>
 
+        <div class="work-detail-actions reveal">
+          <a href="https://userprofilemanagement-mmeq.onrender.com" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary" id="live-demo-userprofile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+            </svg>
+            <span>Live Demo</span>
+          </a>
+          <a href="https://github.com/imSai-py/UserProfileManagement" target="_blank" rel="noopener noreferrer"
+            class="btn btn-secondary" id="view-code-userprofile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <span>View Code</span>
+          </a>
         </div>
+
+        <div class="work-gallery reveal">
+          <div class="work-gallery-item">
+            <img src="./static/assets/images/work002-01.jpg" alt="UserProfileManagement Register Page">
+            <p>Register Page</p>
+          </div>
+          <div class="work-gallery-item">
+            <img src="./static/assets/images/work002-02.jpg" alt="UserProfileManagement Login Page">
+            <p>Login Page</p>
+          </div>
+        </div>
+
+        <div class="work-gallery-full reveal">
+          <img src="./static/assets/images/work002-03.jpg" alt="UserProfileManagement Home Page">
+          <p>Home Page</p>
+        </div>
+
       </div>
     </div>
+  </section>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">© 2025 Sai Lakshman. Built with passion & clean code.</p>
+      </div>
+    </div>
+  </footer>
 
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function (event) {
-        navActivePage();
-      });
-    </script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
-
-<script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date(); a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-  ga('create', 'UA-XXXXX-X', 'auto');
-  ga('send', 'pageview');
-</script>
-
--->
-    <script type="text/javascript" src="./static/main.70a66962.js"></script>
+  <script src="./static/main.js"></script>
 </body>
 
 </html>

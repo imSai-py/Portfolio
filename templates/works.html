@@ -3,162 +3,245 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
-
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore projects by Sai Lakshman — responsive web apps, tools, and experiments.">
+  <meta name="author" content="Sai Lakshman">
 
   <link rel="apple-touch-icon" sizes="180x180" href="./static/assets/apple-icon-180x180.png">
   <link href="./static/assets/favicon.ico" rel="icon">
 
-  <title>Sai Lakshman | Computer Science Student & Web Developer</title>
+  <title>Works | Sai Lakshman</title>
 
-  <link href="./static/main.3f6952e4.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <link href="./static/styles.css" rel="stylesheet">
 </head>
 
-<body class="">
-  <div id="site-border-left"></div>
-  <div id="site-border-right"></div>
-  <div id="site-border-top"></div>
-  <div id="site-border-bottom"></div>
-  <!-- Add your content of header -->
-  <header>
-    <nav class="navbar  navbar-fixed-top navbar-default">
-      <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
-          aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+<body>
 
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav ">
-            <li><a href="./index.html" title="">01 : Home</a></li>
-            <li><a href="./works.html" title="">02 : Works</a></li>
-            <li><a href="./about.html" title="">03 : About me</a></li>
-            <li><a href="./contact.html" title="">04 : Contact</a></li>
-            <li><a href="./resume.html" title="">05 : Resume</a></li>
-          </ul>
+  <div class="bg-mesh" aria-hidden="true"></div>
 
-
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <div class="section-container">
+  <!-- ===== Navigation ===== -->
+  <nav class="navbar" id="navbar">
     <div class="container">
-      <div class="row">
+      <a href="./index.html" class="nav-brand" aria-label="Home">
+        <span class="brand-dot"></span>
+        SL
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="./index.html" class="nav-link">Home</a></li>
+        <li><a href="./works.html" class="nav-link">Works</a></li>
+        <li><a href="./about.html" class="nav-link">About</a></li>
+        <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        <li><a href="./resume.html" class="nav-link">Resume</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
 
-        <div class="col-sm-8 col-sm-offset-2 section-container-spacer">
-          <div class="text-center">
-            <h1 class="h2">02 : Works</h1>
-            <p> here are a few projects that showcase my skills building
-              responsive, user-friendly web applications and experiments.</p>
-          </div>
-        </div>
+  <!-- ===== Works Section ===== -->
+  <section class="section" style="padding-top: calc(var(--navbar-height) + var(--sp-3xl));">
+    <div class="container">
 
-        <div class="col-md-12">
-
-          <div id="myCarousel" class="carousel slide projects-carousel">
-            <!-- Carousel items -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <div class="row">
-                  <div class="col-sm-4">
-
-                    <a href="./work.html" title="" class="black-image-project-hover">
-                      <img src="./static/assets/images/work01-hover.jpg.jpg" alt="" class="img-responsive">
-                    </a>
-                    <div class="card-container card-container-lg">
-                      <h4>001/003</h4>
-                      <h3>ExpenseSnap</h3>
-                      <p>ExpenseSnap is a web application that allows users to track their expenses and manage their
-                        budgets. It is a simple and easy-to-use application that helps users to keep track of their
-                        expenses and manage their budgets.</p>
-                      <a href="./work.html" title="" class="btn btn-default">Discover</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <a href="./work2.html" title="" class="black-image-project-hover">
-                      <img src="./static/assets/images/work02-hover.jpg" alt="" class="img-responsive">
-                    </a>
-                    <div class="card-container card-container-lg">
-                      <h4>002/003</h4>
-                      <h3>UserProfileManage</h3>
-                      <p>UserProfileManagement is a web application that allows users to manage their profiles and
-                        update their information. It is a simple and easy-to-use application that helps users to keep
-                        track of their profiles and manage their information.</p>
-                      <a href="./work2.html" title="" class="btn btn-default">Discover</a>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <a href="./work3.html" title="" class="black-image-project-hover">
-                      <img src="./static/assets/images/work03-hover.jpg" alt="" class="img-responsive">
-                    </a>
-                    <div class="card-container card-container-lg">
-                      <h4>003/003</h4>
-                      <h3>Portfolio</h3>
-                      <p>Portfolio is a web application that allows users to showcase their work and projects. It is a
-                        simple and easy-to-use application that helps users to keep track of their work and projects.
-                      </p>
-                      <a href="./work3.html" title="" class="btn btn-default">Discover</a>
-                    </div>
-                  </div>
-
-                </div>
-                <!--/row-->
-              </div>
-              <!--/item-->
-              <!--/row-->
-            </div>
-
-            <!--/item-->
-          </div>
-          <!--/carousel-inner-->
-
-        </div>
-
-
-
-        <!--/myCarousel-->
+      <!-- Section Header -->
+      <div class="section-header reveal">
+        <span class="section-label">Portfolio</span>
+        <h1 class="section-title">Featured Projects</h1>
+        <p class="section-desc">Here are a few projects that showcase my skills building
+          responsive, user-friendly web applications and experiments.</p>
       </div>
 
+      <!-- Projects Grid -->
+      <div class="projects-grid">
 
+        <!-- Project 1: ExpenseSnap -->
+        <div class="project-card reveal">
+          <div class="project-image">
+            <img src="./static/assets/images/work01-hover.jpg.jpg" alt="ExpenseSnap — Expense Tracking App">
+            <!-- Hover Overlay -->
+            <div class="project-overlay">
+              <div class="project-overlay-actions">
+                <a href="https://expensesnap-a1995.web.app/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-primary" style="padding: 10px 20px; font-size: 0.75rem;">
+                  <span>Live Demo</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                  </svg>
+                </a>
+                <a href="https://github.com/imSai-py/ExpenseSnap" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.75rem;">
+                  <span>Code</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-number">001 / 003</span>
+            <h3>ExpenseSnap</h3>
+            <p>ExpenseSnap is a web application that allows users to track their expenses and manage their
+              budgets. It is a simple and easy-to-use application that helps users to keep track of their
+              expenses and manage their budgets.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Firebase</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a href="./work.html" class="project-link" id="discover-expensesnap">
+              Discover
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
 
+        <!-- Project 2: UserProfileManagement -->
+        <div class="project-card reveal">
+          <div class="project-image">
+            <img src="./static/assets/images/work02-hover.jpg" alt="UserProfileManagement App">
+            <div class="project-overlay">
+              <div class="project-overlay-actions">
+                <a href="https://userprofilemanagement-mmeq.onrender.com" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-primary" style="padding: 10px 20px; font-size: 0.75rem;">
+                  <span>Live Demo</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                  </svg>
+                </a>
+                <a href="https://github.com/imSai-py/UserProfileManagement" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.75rem;">
+                  <span>Code</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-number">002 / 003</span>
+            <h3>UserProfileManage</h3>
+            <p>UserProfileManagement is a web application that allows users to manage their profiles and
+              update their information. It is a simple and easy-to-use application that helps users to keep
+              track of their profiles and manage their information.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Django</span>
+              <span class="project-tag">SQLite</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a href="./work2.html" class="project-link" id="discover-userprofile">
+              Discover
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: Portfolio -->
+        <div class="project-card reveal">
+          <div class="project-image">
+            <img src="./static/assets/images/work03-hover.jpg" alt="Portfolio Website">
+            <div class="project-overlay">
+              <div class="project-overlay-actions">
+                <a href="https://portfolio-qrsimzlbf-sai-lakshmans-projects-2627b503.vercel.app/" target="_blank"
+                  rel="noopener noreferrer" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.75rem;">
+                  <span>Live Demo</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                  </svg>
+                </a>
+                <a href="https://github.com/imSai-py/Portfolio" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.75rem;">
+                  <span>Code</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-number">003 / 003</span>
+            <h3>Portfolio</h3>
+            <p>Portfolio is a web application that allows users to showcase their work and projects. It is a
+              simple and easy-to-use application that helps users to keep track of their work and projects.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">Vercel</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a href="./work3.html" class="project-link" id="discover-portfolio">
+              Discover
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-  </div>
+  </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-social">
+          <a href="https://x.com/Sai_lak_" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="Twitter">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22.46 6.12a8.9 8.9 0 01-2.65.73 4.6 4.6 0 002.02-2.54 9.15 9.15 0 01-2.92 1.11 4.57 4.57 0 00-7.78 4.17A12.95 12.95 0 013.1 4.9a4.57 4.57 0 001.42 6.1 4.47 4.47 0 01-2.07-.57v.06a4.57 4.57 0 003.67 4.48 4.5 4.5 0 01-2.06.08 4.57 4.57 0 004.27 3.17A9.17 9.17 0 012 20.09a12.92 12.92 0 007 2.05c8.38 0 12.97-6.94 12.97-12.97l-.01-.59A9.28 9.28 0 0024 6.11a8.9 8.9 0 01-1.54.01z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/sai_wbdev/" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.44.41a4.08 4.08 0 011.52.99 4.08 4.08 0 01.99 1.52c.17.47.36 1.27.41 2.44.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.44a4.36 4.36 0 01-2.51 2.51c-.47.17-1.27.36-2.44.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.44-.41a4.36 4.36 0 01-2.51-2.51c-.17-.47-.36-1.27-.41-2.44C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.44a4.08 4.08 0 01.99-1.52 4.08 4.08 0 011.52-.99c.47-.17 1.27-.36 2.44-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a6.24 6.24 0 00-2.26 1.47A6.24 6.24 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91a6.24 6.24 0 001.47 2.26 6.24 6.24 0 002.26 1.47c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a6.5 6.5 0 003.73-3.73c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a6.24 6.24 0 00-1.47-2.26A6.24 6.24 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/sai-lakshman-390b08295/" target="_blank" rel="noopener noreferrer"
+            class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05a3.74 3.74 0 013.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11-.01-4.13 2.06 2.06 0 01.01 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77A1.75 1.75 0 000 1.73v20.54A1.75 1.75 0 001.77 24h20.45A1.75 1.75 0 0024 22.27V1.73A1.75 1.75 0 0022.22 0h.01z" />
+            </svg>
+          </a>
+        </div>
+        <p class="footer-text">© 2025 Sai Lakshman. Built with passion & clean code.</p>
+      </div>
+    </div>
+  </footer>
 
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-      navActivePage();
-    });
-  </script>
-
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
-
-<script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date(); a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0s]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-  ga('create', 'UA-XXXXX-X', 'auto');
-  ga('send', 'pageview');
-</script>
-
--->
-  <script type="text/javascript" src="./static/main.70a66962.js"></script>
+  <script src="./static/main.js"></script>
 </body>
 
 </html>
