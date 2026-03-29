@@ -15,13 +15,12 @@ export default function Navbar() {
   const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60)
+    const handleScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close menu on route change
   useEffect(() => {
     setMenuOpen(false)
     document.body.style.overflow = ''
@@ -44,25 +43,23 @@ export default function Navbar() {
       <nav
         id="navbar"
         className={`
-          fixed top-0 left-0 right-0 h-[72px] flex items-center justify-center z-[1000]
-          transition-all duration-350 ease-out
-          backdrop-blur-[12px] border-b border-white/8
+          fixed top-0 left-0 right-0 h-16 flex items-center justify-center z-[1000]
+          transition-all duration-300 ease-out
           ${scrolled
-            ? 'bg-[rgba(10,15,30,0.6)] backdrop-blur-[16px] shadow-[0_6px_30px_rgba(0,0,0,0.4)]'
-            : 'bg-[rgba(10,15,30,0.4)] shadow-[0_4px_30px_rgba(0,0,0,0.3)]'
+            ? 'bg-[rgba(5,5,16,0.85)] backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
+            : 'bg-transparent'
           }
         `}
       >
-        <div className="w-full max-w-[1200px] mx-auto px-8 flex items-center justify-between">
-          {/* Brand */}
+        <div className="w-full max-w-[1100px] mx-auto px-6 flex items-center justify-between">
+          {/* Brand — "SL" logo with gradient */}
           <Link
             to="/"
-            className="font-heading text-lg font-bold text-text tracking-tight flex items-center gap-2"
+            className="font-heading text-xl font-bold tracking-tight flex items-center"
             aria-label="Home"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-br from-primary to-accent shadow-[0_0_12px_var(--color-primary-glow)]" />
-            SL
+            <span className="gradient-text">SL</span>
           </Link>
 
           {/* Desktop Nav Links */}
@@ -72,11 +69,11 @@ export default function Navbar() {
                 <Link
                   to={path}
                   className={`
-                    relative px-5 py-2 font-body text-sm font-medium tracking-wide uppercase
-                    rounded-full transition-all duration-300 ease-out z-[1]
+                    relative px-4 py-2 font-body text-xs font-medium tracking-[0.08em] uppercase
+                    transition-colors duration-200
                     ${location.pathname === path
-                      ? 'nav-active text-white'
-                      : 'text-text-muted hover:text-white hover:scale-105 hover:bg-white/3'
+                      ? 'nav-active'
+                      : 'text-text-muted hover:text-text'
                     }
                   `}
                 >
@@ -92,9 +89,9 @@ export default function Navbar() {
             onClick={toggleMenu}
             aria-label="Toggle navigation"
           >
-            <span className={`block w-6 h-0.5 bg-text rounded-sm transition-all duration-350 ease-out ${menuOpen ? 'rotate-45 translate-x-[5px] translate-y-[5px]' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-text rounded-sm transition-all duration-350 ease-out ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-text rounded-sm transition-all duration-350 ease-out ${menuOpen ? '-rotate-45 translate-x-[5px] -translate-y-[5px]' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-text rounded-sm transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-text rounded-sm transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-text rounded-sm transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
           </button>
         </div>
       </nav>
@@ -104,8 +101,8 @@ export default function Navbar() {
         className={`
           fixed md:hidden top-0 ${menuOpen ? 'right-0' : 'right-[-100%]'}
           w-4/5 max-w-[320px] h-screen flex flex-col justify-center items-center gap-2
-          p-12 z-[1000] transition-all duration-350 ease-out
-          bg-[rgba(10,15,30,0.7)] backdrop-blur-[25px] border-l border-white/8
+          p-10 z-[1000] transition-all duration-350 ease-out
+          bg-[rgba(5,5,16,0.95)] backdrop-blur-2xl border-l border-white/5
         `}
       >
         {navItems.map(({ path, label }) => (
@@ -114,11 +111,11 @@ export default function Navbar() {
             to={path}
             onClick={closeMenu}
             className={`
-              w-full text-center text-base font-medium tracking-wide uppercase
-              py-4 px-4 rounded-full transition-all duration-300
+              w-full text-center text-sm font-medium tracking-[0.08em] uppercase
+              py-4 px-4 rounded-lg transition-all duration-200
               ${location.pathname === path
-                ? 'nav-active text-white'
-                : 'text-text-muted hover:text-white hover:bg-white/3'
+                ? 'text-accent'
+                : 'text-text-muted hover:text-text'
               }
             `}
           >
@@ -130,7 +127,7 @@ export default function Navbar() {
       {/* Mobile Overlay */}
       {menuOpen && (
         <div
-          className="fixed md:hidden inset-0 bg-black/50 z-[999]"
+          className="fixed md:hidden inset-0 bg-black/60 z-[999]"
           onClick={closeMenu}
         />
       )}

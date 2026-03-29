@@ -14,14 +14,16 @@ function App() {
     <>
       <BackgroundMesh />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/works" element={<WorksPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/resume" element={<ResumePage />} />
-        <Route path="/work/:id" element={<WorkDetailPage />} />
-      </Routes>
+      <main className="relative z-[1]">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/works" element={<WorksPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/resume" element={<ResumePage />} />
+          <Route path="/work/:id" element={<WorkDetailPage />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   )

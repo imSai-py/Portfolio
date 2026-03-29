@@ -1,8 +1,12 @@
-export default function BackgroundMesh() {
+import spaceImg from '../assets/images/Nebula.jpg'
+export default function NebulaBg() {
   return (
-    <div
-      className="bg-mesh fixed inset-0 z-[-1] pointer-events-none overflow-hidden"
-      aria-hidden="true"
-    />
+    <div className="nebula-bg" aria-hidden="true">
+      <img
+        src={spaceImg}
+        alt=""
+        draggable={false}
+      />
+    </div>
   )
 }

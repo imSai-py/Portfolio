@@ -21,6 +21,7 @@ const workDetails = {
     quote: '"ExpenseSnap: The effortless way to track your expenses and master your budget."',
     liveUrl: 'https://expensesnap-a1995.web.app/',
     codeUrl: 'https://github.com/imSai-py/ExpenseSnap',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
     gallery: [
       { img: work001_02, label: 'Register Page' },
       { img: work001_04, label: 'Login Page' },
@@ -34,6 +35,7 @@ const workDetails = {
     quote: '"UserProfileManagement: The effortless way to manage your profiles and update your information."',
     liveUrl: 'https://userprofilemanagement-mmeq.onrender.com',
     codeUrl: 'https://github.com/imSai-py/UserProfileManagement',
+    tags: ['Python', 'Django', 'SQLite'],
     gallery: [
       { img: work002_01, label: 'Register Page' },
       { img: work002_02, label: 'Login Page' },
@@ -47,6 +49,7 @@ const workDetails = {
     quote: '"Portfolio: Showcase your work in style."',
     liveUrl: 'https://portfolio-sai-lakshmans-projects-2627b503.vercel.app/',
     codeUrl: 'https://github.com/imSai-py/Portfolio',
+    tags: ['HTML', 'CSS', 'Flask', 'Vercel'],
     gallery: [],
     fullImg: { img: work003_03, label: 'Home Page' },
   },
@@ -65,10 +68,10 @@ export default function WorkDetailPage() {
 
   if (!work) {
     return (
-      <section className="min-h-screen flex items-center justify-center" style={{ paddingTop: '72px' }}>
+      <section className="min-h-screen flex items-center justify-center pt-16">
         <div className="text-center">
           <h1 className="font-heading text-3xl font-bold text-text mb-4">Project Not Found</h1>
-          <Link to="/works" className="text-primary hover:text-accent transition-colors">
+          <Link to="/works" className="text-accent hover:text-primary transition-colors text-sm">
             ← Back to Works
           </Link>
         </div>
@@ -77,8 +80,8 @@ export default function WorkDetailPage() {
   }
 
   return (
-    <section className="relative" style={{ paddingTop: 'calc(72px + 4rem)', paddingBottom: '6rem' }}>
-      <div className="w-full max-w-[1200px] mx-auto px-8">
+    <section className="relative pt-24 pb-20">
+      <div className="w-full max-w-[1000px] mx-auto px-6">
         {/* Sub-navigation */}
         <div className="flex items-center gap-2 mb-8">
           {[1, 2, 3].map(n => (
@@ -86,10 +89,10 @@ export default function WorkDetailPage() {
               key={n}
               to={`/work/${n}`}
               className={`
-                px-3 py-1 text-xs font-semibold rounded-lg transition-all duration-200 ease-out
+                px-3 py-1 text-xs font-semibold rounded-lg transition-all duration-200
                 ${Number(id) === n
-                  ? 'text-text bg-glass-hover'
-                  : 'text-text-dim hover:text-text hover:bg-glass-hover'
+                  ? 'text-accent bg-accent/10'
+                  : 'text-text-dim hover:text-text hover:bg-white/3'
                 }
               `}
             >
@@ -99,34 +102,47 @@ export default function WorkDetailPage() {
         </div>
 
         {/* Hero Image */}
-        <div ref={heroRef} className="reveal-base rounded-2xl overflow-hidden mb-12 shadow-[0_16px_64px_rgba(0,0,0,0.6)]">
+        <div ref={heroRef} className="reveal-base rounded-2xl overflow-hidden mb-12 shadow-[0_16px_64px_rgba(0,0,0,0.6)] border border-glass-border">
           <img src={work.heroImg} alt={`${work.title} Overview`} className="w-full h-auto" />
         </div>
 
         {/* Content */}
-        <div className="max-w-[800px] mx-auto">
-          <h1 ref={titleRef} className="reveal-base font-heading text-[2.5rem] max-md:text-[1.75rem] font-bold mb-6 text-center text-text">
+        <div className="max-w-[750px] mx-auto">
+          <h1 ref={titleRef} className="reveal-base font-heading text-3xl md:text-4xl font-bold mb-6 text-center text-text">
             {work.title}
           </h1>
-          <p ref={descRef} className="reveal-base text-lg leading-relaxed text-text-muted mb-8">
+
+          {/* Tags */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {work.tags.map(tag => (
+              <span
+                key={tag}
+                className="px-3 py-1 text-[10px] font-medium text-accent bg-accent/8 border border-accent/15 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <p ref={descRef} className="reveal-base text-base leading-relaxed text-text-muted mb-8">
             {work.description}
           </p>
 
           {/* Quote */}
-          <blockquote ref={quoteRef} className="reveal-base relative px-12 py-8 my-12 bg-glass border-l-[3px] border-l-primary rounded-r-xl text-lg text-text-muted italic">
+          <blockquote ref={quoteRef} className="reveal-base relative px-8 py-6 my-10 glass-card border-l-[3px] border-l-accent text-base text-text-muted italic">
             <p className="mb-2">{work.quote}</p>
-            <small className="block text-right text-text-dim not-italic text-sm">— Sai Lakshman</small>
+            <small className="block text-right text-text-dim not-italic text-xs">— Sai Lakshman</small>
           </blockquote>
 
           {/* Action Buttons */}
-          <div ref={actionsRef} className="reveal-base flex justify-center gap-6 flex-wrap my-12 pt-8 border-t border-glass-border max-sm:flex-col max-sm:items-center">
+          <div ref={actionsRef} className="reveal-base flex justify-center gap-4 flex-wrap my-10 pt-8 border-t border-glass-border">
             <a
               href={work.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gradient inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-semibold tracking-wide uppercase text-white rounded-full transition-all duration-350 ease-out hover:-translate-y-[3px]"
+              className="btn-gradient inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-semibold tracking-[0.08em] uppercase text-white rounded-full transition-all duration-300 hover:-translate-y-[2px]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-current">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                 <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
               </svg>
               <span>Live Demo</span>
@@ -135,9 +151,9 @@ export default function WorkDetailPage() {
               href={work.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-glass inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-semibold tracking-wide uppercase text-text rounded-full transition-all duration-350 ease-out hover:-translate-y-[3px]"
+              className="btn-glass inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-semibold tracking-[0.08em] uppercase text-text rounded-full transition-all duration-300 hover:-translate-y-[2px]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-current">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
               </svg>
               <span>View Code</span>
@@ -146,7 +162,7 @@ export default function WorkDetailPage() {
 
           {/* Screenshot Gallery */}
           {work.gallery.length > 0 && (
-            <div ref={galleryRef} className="reveal-base grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div ref={galleryRef} className="reveal-base grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
               {work.gallery.map(({ img, label }) => (
                 <div key={label} className="text-center">
                   <img
@@ -154,7 +170,7 @@ export default function WorkDetailPage() {
                     alt={`${work.title} ${label}`}
                     className="w-full rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.4)] border border-glass-border mb-2"
                   />
-                  <p className="text-sm text-text-dim">{label}</p>
+                  <p className="text-xs text-text-dim">{label}</p>
                 </div>
               ))}
             </div>
@@ -168,7 +184,7 @@ export default function WorkDetailPage() {
                 alt={`${work.title} ${work.fullImg.label}`}
                 className="w-full rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.4)] border border-glass-border mb-2"
               />
-              <p className="text-sm text-text-dim">{work.fullImg.label}</p>
+              <p className="text-xs text-text-dim">{work.fullImg.label}</p>
             </div>
           )}
         </div>
