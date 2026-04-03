@@ -9,12 +9,17 @@ import ContactPage from './pages/ContactPage'
 import ResumePage from './pages/ResumePage'
 import WorkDetailPage from './pages/WorkDetailPage'
 
+import Preloader from './components/Preloader'
+
 function App() {
   return (
     <>
-      <BackgroundMesh />
+      <Preloader />
+      <div className="glow-orb orb-purple-top"></div>
+      <div className="glow-orb orb-violet-bottom"></div>
+      
       <Navbar />
-      <main className="relative z-[1]">
+      <div className="relative z-[1]">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -23,7 +28,7 @@ function App() {
           <Route path="/resume" element={<ResumePage />} />
           <Route path="/work/:id" element={<WorkDetailPage />} />
         </Routes>
-      </main>
+      </div>
       <Footer />
     </>
   )

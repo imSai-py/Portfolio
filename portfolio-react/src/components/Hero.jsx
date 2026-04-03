@@ -1,15 +1,16 @@
-import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 const typedStrings = [
-  'Web Developer | Crafting Minimal & Modern Digital Experiences',
   'Computer Science Student & Problem Solver',
   'Building Clean, User-Friendly Websites',
+  'Web Developer | Crafting Minimal & Modern Digital Experiences',
 ]
+
+import AnimatedVisual from './AnimatedVisual'
 
 export default function Hero() {
   const [typedText, setTypedText] = useState('')
-  const contentRef = useRef(null)
 
   // Typing animation
   useEffect(() => {
@@ -55,46 +56,67 @@ export default function Hero() {
     return () => clearTimeout(timeoutId)
   }, [])
 
+  const handleScrollTo = (id) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <section className="hero-section">
-      <div
-        ref={contentRef}
-        className="hero-glow relative z-[1] text-center max-w-[700px] will-change-transform"
+    <section className="relative min-h-[716px] flex flex-col justify-center items-start overflow-hidden pt-20" id="hero">
+      <AnimatedVisual />
+      {/* Grid Overlay */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <svg height="100%" viewBox="0 0 1000 1000" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern height="40" id="grid" patternUnits="userSpaceOnUse" width="40">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#a855f7" strokeWidth="0.5"></path>
+            </pattern>
+          </defs>
+          <rect fill="url(#grid)" height="100%" width="100%"></rect>
+        </svg>
+      </div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="z-10 space-y-6 max-w-4xl w-full"
       >
-        {/* Main Heading */}
-        <h1 className="font-heading text-[4rem] md:text-[5rem] lg:text-[5.5rem] font-bold tracking-[-0.02em] leading-[1.05] mb-5 animate-fade-in-up">
-          <span className="gradient-text">Sai Lakshman</span>
+
+
+        <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-on-surface">
+          Sai Lakshman<span className="text-primary-container">.</span>
         </h1>
 
-        {/* Typed Subtitle */}
-        <div className="min-h-[2em] mb-8 animate-fade-in-up [animation-delay:0.3s]">
-          <p className="text-sm md:text-base text-text-muted leading-relaxed font-light">
-            <span>{typedText}</span>
-            <span className="typed-cursor" />
-          </p>
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="flex items-center justify-center gap-4 flex-wrap animate-fade-in-up [animation-delay:0.5s]">
-          <Link
-            to="/works"
-            id="cta-works"
-            className="btn-primary inline-flex items-center justify-center gap-2 px-4 py-2.5 text-[11px] font-bold tracking-[0.1em] uppercase text-[#0b1326] rounded-full transition-all duration-300"
+        <div className="space-y-4">
+          <div className="min-h-[6em] md:min-h-[4.5em]">
+            <p className="text-2xl md:text-3xl font-light text-on-surface-variant leading-relaxed max-w-2xl">
+              {typedText}
+              <span className="typed-cursor" />
+            </p>
+          </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="flex flex-wrap gap-4 pt-4"
           >
-            <span className="relative z-[1]">View My Work</span>
-          </Link>
-          <Link
-            to="/contact"
-            id="cta-contact"
-            className="btn-secondary inline-flex items-center justify-center gap-2 px-4 py-2.5 text-[11px] font-bold tracking-[0.1em] uppercase text-[#dae2fd] rounded-full transition-all duration-300"
-          >
-            <span className="relative z-[1]">Get in Touch</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4 fill-current relative z-[1]">
-              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-            </svg>
-          </Link>
+            <button 
+              onClick={() => handleScrollTo('projects')}
+              className="bg-primary-fixed-dim text-on-primary-fixed px-8 py-4 rounded-xl font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2"
+            >
+              View my work
+            </button>
+            <button 
+              onClick={() => handleScrollTo('contact')}
+              className="glass-panel px-8 py-4 rounded-xl font-bold tracking-tight text-on-surface hover:bg-surface-container-high transition-all"
+            >
+              Get in Touch
+            </button>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

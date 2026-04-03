@@ -31,7 +31,7 @@ export default function Resume() {
   }
 
   return (
-    <section className="relative pt-24 pb-20">
+    <section className="relative pt-24 pb-20" id="resume">
       <div className="w-full max-w-[1100px] mx-auto px-6">
         {/* Download Button — Top center */}
         <div ref={downloadRef} className="reveal-base flex justify-center mb-16">

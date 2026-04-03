@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
-import useReveal from '../hooks/useReveal'
+import { motion } from 'framer-motion'
 import profileImg from '../assets/images/profil.jpg'
 
 /* SVG Icon Components for Skills */
@@ -119,32 +118,45 @@ const skills = [
 ]
 
 export default function About() {
-  const profileRef = useReveal()
-  const storyRef = useReveal()
-  const skillHeaderRef = useReveal()
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  }
+
+  const itemVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  }
 
   return (
-    <section className="relative pt-24 pb-20">
+    <section className="relative pt-24 pb-20 w-full" id="about">
       <div className="w-full max-w-[1100px] mx-auto px-6">
         {/* About Grid — Profile + Story side by side */}
-        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start mb-20">
-          {/* Profile Image — Rounded square with glow frame like Stitch design */}
-          <div ref={profileRef} className="reveal-base flex justify-center lg:justify-start">
-            <div className="profile-frame">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerVariant}
+          className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start mb-20"
+        >
+          {/* Profile Image */}
+          <motion.div variants={itemVariant} className="flex justify-center lg:justify-start">
+            <div className="profile-frame relative w-[280px] h-[280px] rounded-[24px] border border-outline-variant/20 p-2 overflow-hidden bg-surface-container shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#00D4AA]/10 to-[#B87BE4]/10 rounded-[24px]" />
               <img
                 src={profileImg}
-                alt="Sai Lakshman — Profile Photo"
-                className="profile-frame-img"
+                alt="Sai Lakshman"
+                className="w-full h-full object-cover rounded-[16px] shadow-inner"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* My Story */}
-          <div ref={storyRef} className="reveal-base">
-            <h2 className="section-title font-heading text-[1.75rem] md:text-3xl font-bold mb-8">
-              <span className="gradient-text">My Story</span>
+          <motion.div variants={itemVariant}>
+            <h2 className="font-heading text-[1.75rem] md:text-3xl font-bold mb-8">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00D4AA] to-[#B87BE4]">My Story</span>
             </h2>
-            <div className="space-y-6 text-[0.95rem] md:text-base text-text-muted leading-[1.6]">
+            <div className="space-y-6 text-[0.95rem] md:text-base text-on-surface-variant leading-[1.6]">
               <p>
                 Hi! I'm a passionate web developer on a journey to web development and
                 numerous challenges to become developer and creative. I love code for web
@@ -156,87 +168,75 @@ export default function About() {
                 web development to illustrate about my own full-stack skill-set.
               </p>
               <p>
-                I am passionate about web development, app development, graphic design, and
+                I am passionate about web development, app development, backend, prompt enginnering, and
                 constantly adapt to learn new concepts and enjoy great tools in technology and
                 development.
               </p>
             </div>
-          </div>
-        </div>
-
+          </motion.div>
+        </motion.div>
         {/* Skills & Tools Section */}
-        <div className="mt-16">
-          <h2
-            ref={skillHeaderRef}
-            className="reveal-base section-title font-heading text-2xl font-bold mb-12"
-          >
-            <span className="gradient-text">Skills & Tools</span>
-          </h2>
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerVariant}
+          className="mt-16"
+        >
+          <motion.h2 variants={itemVariant} className="font-heading text-2xl font-bold mb-12">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00D4AA] to-[#B87BE4]">Skills & Tools</span>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
             {skills.map((skill, i) => (
-              <SkillBar key={skill.name} {...skill} delay={i * 0.05} />
+              <SkillBar key={skill.name} {...skill} delay={i * 0.1} />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
 
 function SkillBar({ name, level, delay }) {
-  const ref = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
   const IconComponent = iconMap[name]
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            el.classList.add('revealed')
-            setIsVisible(true)
-          }
-        })
-      },
-      { threshold: 0.3 }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <div
-      ref={ref}
-      className="reveal-base flex items-center gap-4"
-      style={{ transitionDelay: `${delay}s` }}
+    <motion.div 
+      variants={{
+        hidden: { opacity: 0, x: -20 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
+      }}
+      className="flex items-center gap-4"
     >
       {/* Icon */}
-      <span className="w-8 h-8 flex items-center justify-center flex-shrink-0 rounded-md">
-        {IconComponent ? <IconComponent /> : <span className="text-xl">{name[0]}</span>}
+      <span className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+        {IconComponent ? <IconComponent /> : <span className="text-xl text-on-surface">{name[0]}</span>}
       </span>
       
       {/* Name + Bar */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center justify-between mb-2">
-          <span className="font-body text-sm font-medium text-text">{name}</span>
+      <div className="flex-1 min-w-0 flex flex-col justify-center">
+        <div className="mb-2">
+          <span className="font-mono text-sm font-medium text-on-surface">{name}</span>
         </div>
         <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative shadow-inner">
-          <div
-            className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#00D4AA] to-[#B87BE4] rounded-full transition-all duration-1000 ease-out z-10"
-            style={{ width: isVisible ? level : '0%' }}
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: level }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: delay }}
+            className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#00D4AA] to-[#B87BE4] rounded-full z-10"
           />
           {/* Subtle glow */}
-          <div 
-            className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#00D4AA] to-[#B87BE4] rounded-full blur-[6px] opacity-60 transition-all duration-1000 ease-out"
-            style={{ width: isVisible ? level : '0%' }}
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: level }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: delay }}
+            className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#00D4AA] to-[#B87BE4] rounded-full blur-[6px] opacity-60"
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

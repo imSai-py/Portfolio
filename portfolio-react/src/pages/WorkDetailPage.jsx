@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import useReveal from '../hooks/useReveal'
+import { motion } from 'framer-motion'
 
 // Work detail images
 import strechImg1 from '../assets/images/Strech-img1.jpg'
@@ -83,22 +84,32 @@ export default function WorkDetailPage() {
     <section className="relative pt-24 pb-20">
       <div className="w-full max-w-[1000px] mx-auto px-6">
         {/* Sub-navigation */}
-        <div className="flex items-center gap-2 mb-8">
-          {[1, 2, 3].map(n => (
-            <Link
-              key={n}
-              to={`/work/${n}`}
-              className={`
-                px-3 py-1 text-xs font-semibold rounded-lg transition-all duration-200
-                ${Number(id) === n
-                  ? 'text-accent bg-accent/10'
-                  : 'text-text-dim hover:text-text hover:bg-white/3'
-                }
-              `}
-            >
-              {String(n).padStart(3, '0')}
-            </Link>
-          ))}
+        <div className="flex items-center justify-center gap-2 mb-12 bg-surface-container-lowest p-2 rounded-full w-max mx-auto border border-outline-variant/10 shadow-lg">
+          {[1, 2, 3].map(n => {
+            const isActive = Number(id) === n;
+            return (
+              <Link
+                key={n}
+                to={`/work/${n}`}
+                className={`
+                  relative px-8 py-3 text-sm font-bold font-mono rounded-full transition-colors duration-300 outline-none
+                  ${isActive
+                    ? 'text-white'
+                    : 'text-on-surface-variant hover:text-on-surface'
+                  }
+                `}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="active-work-pill"
+                    className="absolute inset-0 bg-primary-container rounded-full z-0 shadow-lg"
+                    transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                  />
+                )}
+                <span className="relative z-10 transition-colors uppercase tracking-widest">{String(n).padStart(3, '0')}</span>
+              </Link>
+            )
+          })}
         </div>
 
         {/* Hero Image */}

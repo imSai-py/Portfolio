@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sai Lakshman | Senior Frontend Engineer &amp; UI Designer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Space+Grotesk:wght@300;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#e9ddff",
+                      "on-tertiary-container": "#626161",
+                      "tertiary": "#fdf9f9",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#4c0099",
+                      "on-secondary-fixed": "#23005c",
+                      "secondary-fixed-dim": "#d0bcff",
+                      "on-primary-container": "#e9d5ff",
+                      "error": "#ffb4ab",
+                      "outline-variant": "#4a3a4a",
+                      "on-error": "#690005",
+                      "primary-fixed": "#f3e8ff",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-container-high": "#2a2a2a",
+                      "primary-container": "#a855f7",
+                      "on-secondary": "#3c0091",
+                      "primary": "#f3e8ff",
+                      "surface-container": "#201f1f",
+                      "tertiary-container": "#e0dddc",
+                      "primary-fixed-dim": "#c084fc",
+                      "secondary": "#d0bcff",
+                      "tertiary-fixed": "#e5e2e1",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary-container": "#c4abff",
+                      "inverse-surface": "#e5e2e1",
+                      "on-background": "#e5e2e1",
+                      "surface-bright": "#3a3939",
+                      "outline": "#948495",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#313030",
+                      "on-tertiary": "#313030",
+                      "surface-variant": "#353534",
+                      "surface-container-highest": "#353534",
+                      "surface-dim": "#131313",
+                      "on-surface-variant": "#cab9ca",
+                      "on-surface": "#e5e2e1",
+                      "on-tertiary-fixed-variant": "#474646",
+                      "inverse-primary": "#6b21a8",
+                      "on-secondary-fixed-variant": "#5516be",
+                      "secondary-container": "#571bc1",
+                      "on-primary": "#ffffff",
+                      "background": "#131313",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "surface-tint": "#c084fc",
+                      "on-primary-fixed": "#2e004d",
+                      "surface": "#131313"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Inter", "sans-serif"],
+                      "body": ["Inter", "sans-serif"],
+                      "label": ["Space Grotesk", "sans-serif"],
+                      "mono": ["JetBrains Mono", "monospace"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(32, 31, 31, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 132, 149, 0.15);
+        }
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .orb-purple-top {
+            width: 400px;
+            height: 400px;
+            background: rgba(168, 85, 247, 0.15);
+            top: 10%;
+            left: 5%;
+        }
+        .orb-violet-bottom {
+            width: 500px;
+            height: 500px;
+            background: rgba(87, 27, 193, 0.12);
+            bottom: 10%;
+            right: 5%;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        @keyframes subtle-float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: subtle-float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-white">
+<!-- Glowing Background Elements -->
+<div class="glow-orb orb-purple-top"></div>
+<div class="glow-orb orb-violet-bottom"></div>
+<!-- Top Navigation Bar -->
+<nav class="bg-neutral-900/40 backdrop-blur-xl fixed top-0 left-0 right-0 z-50 rounded-none border-b border-white/10 shadow-2xl shadow-purple-500/5">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-lg font-bold tracking-tighter text-neutral-100 uppercase">
+                Sai Lakshman
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-sans tracking-tight text-sm font-medium text-primary-fixed-dim border-b-2 border-primary-fixed-dim pb-1" href="#hero">Hero</a>
+<a class="font-sans tracking-tight text-sm font-medium text-neutral-400 hover:text-neutral-100 transition-colors" href="#skills">Skills</a>
+<a class="font-sans tracking-tight text-sm font-medium text-neutral-400 hover:text-neutral-100 transition-colors" href="#projects">Projects</a>
+<a class="font-sans tracking-tight text-sm font-medium text-neutral-400 hover:text-neutral-100 transition-colors" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary-fixed-dim hover:bg-white/5 p-2 rounded-lg transition-all duration-300 ease-out">terminal</button>
+</div>
+</div>
+</nav>
+<main class="max-w-screen-2xl mx-auto px-6 pt-32 space-y-32">
+<!-- Hero Section -->
+<section class="relative min-h-[716px] flex flex-col justify-center items-start overflow-hidden" id="hero">
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+<svg height="100%" viewbox="0 0 1000 1000" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#a855f7" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="z-10 space-y-6 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 glass-panel rounded-full border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Available for architecture consultation</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter text-on-surface">
+                    Sai Lakshman<span class="text-primary-container">.</span>
+</h1>
+<div class="space-y-4">
+<p class="text-2xl md:text-3xl font-light text-on-surface-variant leading-relaxed max-w-2xl">
+                        Senior Frontend Engineer &amp; UI Designer crafting <span class="text-on-surface font-semibold italic">high-performance</span> digital architectures.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary-fixed-dim text-on-primary-fixed px-8 py-4 rounded-xl font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2">
+                            View Portfolio
+                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<button class="glass-panel px-8 py-4 rounded-xl font-bold tracking-tight text-on-surface hover:bg-surface-container-high transition-all">
+                            Download CV
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Skills & Stack -->
+<section class="space-y-12" id="skills">
+<div class="flex items-end justify-between border-b border-outline-variant/10 pb-6">
+<div>
+<span class="font-mono text-xs text-primary-container uppercase tracking-widest mb-2 block">Capability Matrix</span>
+<h2 class="text-4xl font-bold tracking-tight">Engineering Stack</h2>
+</div>
+<div class="hidden md:block text-right">
+<span class="font-mono text-xs text-on-surface-variant uppercase">Updated: Q4 2024</span>
+</div>
+</div>
+<div class="bento-grid">
+<!-- Large Tech Node -->
+<div class="col-span-12 lg:col-span-7 surface-container p-8 rounded-full flex flex-col justify-between group hover:bg-surface-container-high transition-all border border-transparent hover:border-outline-variant/30">
+<div class="flex justify-between items-start">
+<div class="space-y-4">
+<span class="font-mono text-xs text-primary-container">CORE FRAMEWORKS</span>
+<h3 class="text-3xl font-bold leading-none">Modern Web Ecosystem</h3>
+<p class="text-on-surface-variant max-w-md">Specializing in Next.js 14+ architectures with App Router, Server Components, and optimized hydration strategies.</p>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl">
+<span class="material-symbols-outlined text-primary-container text-4xl">hub</span>
+</div>
+</div>
+<div class="mt-12 flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-container-lowest rounded-lg font-mono text-sm border border-outline-variant/10">Next.js</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-lg font-mono text-sm border border-outline-variant/10">React 18</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-lg font-mono text-sm border border-outline-variant/10">TypeScript</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-lg font-mono text-sm border border-outline-variant/10">GraphQL</span>
+<span class="px-4 py-2 bg-surface-container-lowest rounded-lg font-mono text-sm border border-outline-variant/10">Node.js</span>
+</div>
+</div>
+<!-- Design Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-5 surface-container-low p-8 rounded-full border border-outline-variant/10 hover:border-primary-container/20 transition-all">
+<div class="h-full flex flex-col justify-between">
+<div class="space-y-4">
+<span class="font-mono text-xs text-secondary">AESTHETIC &amp; UI</span>
+<h3 class="text-2xl font-bold">Design Systems</h3>
+<p class="text-on-surface-variant">Bridging the gap between Figma mockups and production-ready component libraries with Tailwind CSS.</p>
+</div>
+<div class="relative h-24 mt-8 flex items-end gap-2 overflow-hidden">
+<div class="w-12 bg-primary-container h-[40%] rounded-t-lg"></div>
+<div class="w-12 bg-secondary h-[80%] rounded-t-lg"></div>
+<div class="w-12 bg-primary-fixed-dim h-[60%] rounded-t-lg"></div>
+<div class="w-12 bg-outline h-[30%] rounded-t-lg"></div>
+<div class="w-12 bg-tertiary-fixed-dim h-[90%] rounded-t-lg"></div>
+</div>
+</div>
+</div>
+<!-- Motion Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 surface-container-lowest border border-outline-variant/20 p-8 rounded-full group">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-secondary transition-transform group-hover:rotate-45 duration-500">auto_awesome_motion</span>
+<h3 class="text-xl font-bold">Interactions &amp; Motion</h3>
+<p class="text-sm text-on-surface-variant">Framer Motion, GSAP, and CSS-in-JS for immersive storytelling experiences.</p>
+</div>
+</div>
+<!-- Tools List -->
+<div class="col-span-12 lg:col-span-8 surface-container p-8 rounded-full">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="space-y-2">
+<h4 class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Workflow</h4>
+<ul class="text-sm space-y-1">
+<li>Vercel / AWS</li>
+<li>Git / CI-CD</li>
+<li>Turborepo</li>
+</ul>
+</div>
+<div class="space-y-2">
+<h4 class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">State</h4>
+<ul class="text-sm space-y-1">
+<li>Zustand</li>
+<li>TanStack Query</li>
+<li>Redux Toolkit</li>
+</ul>
+</div>
+<div class="space-y-2">
+<h4 class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Testing</h4>
+<ul class="text-sm space-y-1">
+<li>Jest / Vitest</li>
+<li>Playwright</li>
+<li>Storybook</li>
+</ul>
+</div>
+<div class="space-y-2">
+<h4 class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Design</h4>
+<ul class="text-sm space-y-1">
+<li>Figma</li>
+<li>Adobe CC</li>
+<li>Rive</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Bento Grid -->
+<section class="space-y-12" id="projects">
+<div class="flex items-center justify-between border-b border-outline-variant/10 pb-6">
+<h2 class="text-4xl font-bold tracking-tight">Curated Works</h2>
+<div class="p-2 glass-panel rounded-lg">
+<span class="material-symbols-outlined">grid_view</span>
+</div>
+</div>
+<div class="bento-grid">
+<!-- Project Alpha: Large Feature -->
+<div class="col-span-12 md:col-span-8 surface-container-lowest rounded-full overflow-hidden border border-outline-variant/10 group">
+<div class="relative h-96 w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100" data-alt="abstract digital visualization of complex data structures with glowing neon purple lines on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFGmsT1cQm9NIejF4CfSo9tQAYdnupXwGb8oJqjCtjrbZlVXMWZkLL6rn0xy69as26IAuHEO4zkfwsaN2qpUVqVw5vXu7bSG7DhJo839Fbo_25VFssteLEyCXbMzVa50BT2xIC84rHl5KQaOLjaorfF9T_VV94FTXNQndITUxkT5KosQFrWDh0hI7vkN4HOYYr4oX2EJfn3cT9eq34cgqLdBsRNL00Fk_Kz_PdO3MTkT-wsDOPc8pHsllvmNse3mBN4-cRXF0VzHE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+</div>
+<div class="p-10 -mt-20 relative z-10">
+<span class="px-3 py-1 bg-primary-container text-white rounded font-mono text-[10px] font-bold">FINTECH ARCHITECTURE</span>
+<h3 class="text-4xl font-black mt-4 mb-2">OmniTrade Dashboard</h3>
+<p class="text-on-surface-variant max-w-lg text-lg">A high-frequency trading interface built for institutional investors. Focused on real-time data visualization and zero-latency interactions.</p>
+<div class="flex gap-4 mt-8">
+<span class="material-symbols-outlined text-primary-container">arrow_outward</span>
+<span class="font-mono text-sm uppercase tracking-widest">Case Study Available</span>
+</div>
+</div>
+</div>
+<!-- Project Beta: Square -->
+<div class="col-span-12 md:col-span-4 surface-container-low rounded-full p-8 flex flex-col justify-between border border-outline-variant/10 hover:bg-surface-container transition-colors group">
+<div class="space-y-4">
+<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white">eco</span>
+</div>
+<h3 class="text-2xl font-bold">Leafy SaaS</h3>
+<p class="text-sm text-on-surface-variant">Sustainability tracking platform for enterprise logistics. Built with Next.js 14 and D3.js integration.</p>
+</div>
+<img class="w-full h-40 object-cover rounded-xl mt-6 grayscale group-hover:grayscale-0 transition-all" data-alt="minimalist hardware and circuit board textures with soft violet accent lighting in a dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_aevoX0tD2CuennDIuAS7ZmZjW5uthcpZqWNiOKKPm7udpyGEBF98FVG2TjAHBOJ1NpR5okiQVjz53qTjF_TLaoIYT0kfJ1sJH9ZNaqns6sMlG5-ItsOmXPSugAy1dkS0PeiAXKExHxvg13w7BoexyoAidr7Euz9thJYMsc7G1ebxunuX7a6J1JFPJ-pKe2wE31DzL1fmbcKUYMIZiQaCHJ4swQtnbGpm9o9XxpyUZdBLelGFjRSeGd5qXvlbAGfTYTessfx-H78"/>
+</div>
+<!-- Project Gamma: Long -->
+<div class="col-span-12 md:col-span-4 surface-container rounded-full p-8 border border-outline-variant/10 relative overflow-hidden group">
+<div class="z-10 relative h-full flex flex-col justify-center">
+<span class="font-mono text-[10px] text-primary-container">INTERNAL TOOLING</span>
+<h3 class="text-2xl font-bold mt-2">Prism UI Kit</h3>
+<p class="text-on-surface-variant mt-2 text-sm">Proprietary design system for 50+ internal developers.</p>
+</div>
+<div class="absolute -right-10 top-0 bottom-0 flex items-center opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[10rem]">design_services</span>
+</div>
+</div>
+<!-- Project Delta: Square -->
+<div class="col-span-12 md:col-span-8 surface-container-highest rounded-full p-10 flex items-center gap-8 group">
+<div class="w-1/2 hidden md:block">
+<img class="rounded-2xl border border-white/5 grayscale group-hover:grayscale-0 transition-all" data-alt="close up of a network server rack with many blinking purple and violet indicator lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKxZJIwxzJ-Xi_IBW0ewmjLESKeZka9EFeKl-80oFT-1yHqU-A6ZizQe6DXTSUdH2wsXe9EJYL0QuVKN7qUzlglVR4W91xX0xwyciBsNdxDjbapBiIUtwKmtZQoCykqNd1z21Whcxt-rMX8quua-LGpbHvoERoRrmq0t6Fnk6kbv9AaLUuU5gPuWswhb3-gv2u1F2eoEzmOqNkfax0OXAcdwteJnYijgjZEFZJDAzqC_4ZSYhrT8gnUFYLoaiD0Bwrh3Q9Pa_pgnw"/>
+</div>
+<div class="md:w-1/2 space-y-4">
+<h3 class="text-3xl font-bold">NodeFlux Core</h3>
+<p class="text-on-surface-variant">A headless CMS bridge for distributed teams, optimizing content delivery by 40% using edge computing.</p>
+<button class="font-mono text-xs text-primary-container border-b border-primary-container/30 pb-1 hover:border-primary-container transition-all uppercase tracking-tighter">View Repository</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section / Terminal Style -->
+<section class="max-w-4xl mx-auto pb-32" id="contact">
+<div class="text-center mb-16">
+<span class="font-mono text-xs text-primary-container uppercase tracking-[0.3em]">Ready to build?</span>
+<h2 class="text-5xl font-black mt-4">Initiate Contact</h2>
+</div>
+<div class="surface-container-lowest rounded-full border border-outline-variant/20 overflow-hidden shadow-2xl">
+<div class="bg-surface-container flex items-center justify-between px-6 py-3 border-b border-outline-variant/10">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/50"></div>
+<div class="w-3 h-3 rounded-full bg-secondary/50"></div>
+<div class="w-3 h-3 rounded-full bg-primary-container/50"></div>
+</div>
+<div class="text-xs font-mono text-on-surface-variant">messenger.sh — 128x40</div>
+<div></div>
+</div>
+<form class="p-8 space-y-6 font-mono text-sm">
+<div class="space-y-2">
+<label class="text-primary-container opacity-70">sai_lakshman@portfolio:~$ <span class="text-on-surface">input --name</span></label>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-surface-variant p-0" placeholder="Your Name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-primary-container opacity-70">sai_lakshman@portfolio:~$ <span class="text-on-surface">input --email</span></label>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-surface-variant p-0" placeholder="email@example.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-primary-container opacity-70">sai_lakshman@portfolio:~$ <span class="text-on-surface">input --message</span></label>
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-surface-variant p-0 resize-none" placeholder="Describe your architectural vision..." rows="4"></textarea>
+</div>
+<div class="pt-4">
+<button class="group flex items-center gap-3 bg-surface-container-high px-6 py-3 rounded-lg border border-outline-variant/30 hover:border-primary-container transition-all" type="submit">
+<span class="text-primary-container">./execute_send</span>
+<span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-neutral-950 w-full py-12 px-8 mt-20 tonal-shift">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-screen-2xl mx-auto">
+<div class="text-neutral-500 font-mono text-xs uppercase tracking-widest">
+                © 2024 Sai Lakshman. Built with precision.
+            </div>
+<div class="flex gap-8 items-center">
+<a class="font-mono text-xs uppercase tracking-widest text-neutral-500 hover:text-primary-fixed-dim transition-colors" href="#">GitHub</a>
+<a class="font-mono text-xs uppercase tracking-widest text-neutral-500 hover:text-primary-fixed-dim transition-colors" href="#">LinkedIn</a>
+<a class="font-mono text-xs uppercase tracking-widest text-neutral-500 hover:text-primary-fixed-dim transition-colors" href="#">Source Code</a>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+<span class="font-mono text-[10px] text-neutral-400 uppercase tracking-tighter">System Status: Operational</span>
+</div>
+</div>
+</footer>
+<!-- Floating Navigation for Mobile -->
+<div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 glass-panel px-6 py-4 rounded-full z-50 flex gap-8 shadow-2xl">
+<a class="material-symbols-outlined text-primary-fixed-dim" href="#hero">home</a>
+<a class="material-symbols-outlined text-neutral-400" href="#skills">psychology</a>
+<a class="material-symbols-outlined text-neutral-400" href="#projects">layers</a>
+<a class="material-symbols-outlined text-neutral-400" href="#contact">alternate_email</a>
+</div>
+</body></html>

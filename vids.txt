@@ -1,0 +1,5 @@
+C:\Users\saila\Desktop\Portfolio\portfolio-react\src\assets\videos\0_Space_Nebula_3840x2160.mp4
+C:\Users\saila\Desktop\Portfolio\portfolio-react\src\assets\videos\galaxy_loop.mp4
+C:\Users\saila\Desktop\Portfolio\static\assets\videos\ExpenseSnap.mp4
+C:\Users\saila\Desktop\Portfolio\static\assets\videos\Portfolio.mp4
+C:\Users\saila\Desktop\Portfolio\static\assets\videos\UserProfileManagement.mp4
