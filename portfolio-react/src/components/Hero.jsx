@@ -84,7 +84,7 @@ export default function Hero() {
       >
 
 
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-on-surface">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-on-surface">
           Sai Lakshman<span className="text-primary-container">.</span>
         </h1>
 

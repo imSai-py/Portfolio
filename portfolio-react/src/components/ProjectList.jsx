@@ -41,7 +41,7 @@ export default function ProjectList({ projects }) {
           >
             <div className="flex items-center gap-6 md:gap-12 w-full">
                <span className="text-on-surface-variant/40 font-mono text-sm md:text-xl font-bold">{String(idx + 1).padStart(2, '0')}</span>
-               <h3 className="text-5xl md:text-7xl lg:text-[7rem] font-black tracking-tighter text-on-surface group-hover:text-primary-container transition-colors duration-500 uppercase leading-none">{project.title}</h3>
+               <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[6rem] font-black tracking-tighter text-on-surface group-hover:text-primary-container transition-colors duration-500 uppercase leading-tight md:leading-none break-all sm:break-words">{project.title}</h3>
             </div>
             
             <div className="mt-8 md:mt-0 flex items-center justify-end flex-shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-8 transition-all duration-500 absolute right-4 md:right-12">
