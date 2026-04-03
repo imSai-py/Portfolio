@@ -14,10 +14,26 @@ export default function Navbar() {
   const navigate = useNavigate()
   const [activeSection, setActiveSection] = useState('#hero')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isNavVisible, setIsNavVisible] = useState(true)
 
-  // Track active section on scroll
+  // Track active section on scroll and manage mobile nav visibility
   useEffect(() => {
+    let scrollTimeout;
+
+    // Initially hide if no scroll happens
+    scrollTimeout = setTimeout(() => {
+      setIsNavVisible(false)
+    }, 3000)
+
     const handleScroll = () => {
+      // Show nav and reset hide timer
+      setIsNavVisible(true)
+      clearTimeout(scrollTimeout)
+      scrollTimeout = setTimeout(() => {
+        setIsNavVisible(false)
+      }, 3000)
+
+      // Section tracking
       const sections = navItems.map(item => item.path.substring(1))
       let current = sections[0]
 
@@ -34,7 +50,10 @@ export default function Navbar() {
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(scrollTimeout)
+    }
   }, [])
 
   const handleNavClick = (e, path) => {
@@ -123,7 +142,7 @@ export default function Navbar() {
       </div>
 
       {/* Persistent Floating Navigation for Mobile (per Purple Edit design) */}
-      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#1A1A1A]/80 backdrop-blur-2xl border border-white/10 px-4 py-2 rounded-2xl z-[800] flex justify-between items-center w-[92%] shadow-[0_16px_40px_rgba(0,0,0,0.6)]">
+      <div className={`md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#1A1A1A]/80 backdrop-blur-2xl border border-white/10 px-4 py-2 rounded-2xl z-[800] flex justify-between items-center w-[92%] shadow-[0_16px_40px_rgba(0,0,0,0.6)] transition-all duration-500 ease-in-out ${isNavVisible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0 pointer-events-none'}`}>
         {[
           { path: '#hero', label: 'Home', icon: <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" /> },
           { path: '#projects', label: 'Works', icon: <path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z" /> },
