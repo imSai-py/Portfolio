@@ -34,7 +34,7 @@ const workDetails = {
     heroImg: strechImg2,
     description: 'UserProfileManagement is a web application that allows users to manage their profiles and update their information. It is a simple and easy-to-use application that helps users to keep track of their profiles and update their information.',
     quote: '"UserProfileManagement: The effortless way to manage your profiles and update your information."',
-    liveUrl: 'https://userprofilemanagement-mmeq.onrender.com',
+    liveUrl: 'https://user-profile-management-nine.vercel.app',
     codeUrl: 'https://github.com/imSai-py/UserProfileManagement',
     tags: ['Python', 'Django', 'SQLite'],
     gallery: [
