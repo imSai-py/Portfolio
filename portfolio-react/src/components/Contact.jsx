@@ -11,36 +11,69 @@ export default function Contact() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
     setIsSuccess(false)
     setTerminalLines([])
 
+    const form = e.target;
+    // The previous app used this key, ensuring it actually lands in the user's gmail exactly as before
+    const formData = new FormData(form);
+    formData.append("access_key", "99984ee8-713f-4f67-9130-42454020865a");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
     const lines = [
-      "Initializing connection...",
+      "Initializing secure connection...",
       "Resolving endpoint details...",
       "Compiling provided data payload...",
-      "Authenticating transaction...",
-      "Message successfully transmitted."
-    ]
+      "Authenticating transaction..."
+    ];
 
     let currentLine = 0;
     const typingInterval = setInterval(() => {
       if (currentLine < lines.length) {
-        setTerminalLines(prev => [...prev, lines[currentLine]])
-        currentLine++
-      } else {
-        clearInterval(typingInterval)
-        setIsSubmitting(false)
-        setIsSuccess(true)
-        
-        setTimeout(() => {
-           setIsSuccess(false)
-           setTerminalLines([])
-        }, 5000)
+        setTerminalLines(prev => [...prev, lines[currentLine]]);
+        currentLine++;
       }
-    }, 400); 
+    }, 400);
+
+    try {
+      const [response] = await Promise.all([
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: json
+        }),
+        new Promise(resolve => setTimeout(resolve, 2000)) // let the 4 animation lines complete
+      ]);
+
+      const result = await response.json();
+      clearInterval(typingInterval);
+
+      if (result.success) {
+        setTerminalLines(prev => [...prev, "200 OK: Message transmitted successfully."]);
+        form.reset();
+      } else {
+        setTerminalLines(prev => [...prev, "ERR: Transmission rejected by server."]);
+      }
+    } catch (error) {
+      clearInterval(typingInterval);
+      setTerminalLines(prev => [...prev, "ERR: Network exception occurred."]);
+    } finally {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      
+      setTimeout(() => {
+         setIsSuccess(false);
+         setTerminalLines([]);
+      }, 5000);
+    }
   }
 
   return (
@@ -129,7 +162,7 @@ export default function Contact() {
                     className="group flex items-center gap-3 bg-surface-container-high px-6 py-3 rounded-lg border border-outline-variant/30 hover:border-primary-container hover:bg-surface-container-highest transition-all" 
                     type="submit"
                   >
-                    <span className="text-primary-container font-bold">./execute_send</span>
+                    <span className="text-primary-container font-bold">Transmit Message</span>
                     <span className="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform text-primary-container">send</span>
                   </button>
                   
@@ -156,7 +189,7 @@ export default function Contact() {
               >
                 <div className="space-y-3">
                   <div className="text-on-surface-variant mb-6">
-                    sai_lakshman@portfolio:~$ <span className="text-on-surface">./execute_send</span>
+                    sai_lakshman@portfolio:~$ <span className="text-on-surface">./transmit_message</span>
                   </div>
                   {terminalLines.map((line, idx) => (
                     <motion.div
