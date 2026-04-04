@@ -31,7 +31,7 @@ const projects = [
     image: work02Img,
     tags: ['Python', 'Django', 'SQLite'],
     categories: ['Frontend', 'Backend', 'Fullstack'],
-    liveUrl: 'https://userprofilemanagement-mmeq.onrender.com',
+    liveUrl: 'https://user-profile-management-nine.vercel.app/',
     codeUrl: 'https://github.com/imSai-py/UserProfileManagement',
     detailPath: '/work/2',
     span: 'col-span-12 lg:col-span-4',
