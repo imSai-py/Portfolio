@@ -128,5 +128,13 @@ def create_resume():
     c.save()
     print(f"Resume PDF created at: {output_path}")
 
+    # Also copy to portfolio-react public folder if it exists
+    react_public_dir = os.path.join("portfolio-react", "public")
+    if os.path.exists(react_public_dir):
+        import shutil
+        react_output_path = os.path.join(react_public_dir, "resume.pdf")
+        shutil.copy2(output_path, react_output_path)
+        print(f"Resume PDF copied to: {react_output_path}")
+
 if __name__ == "__main__":
     create_resume()
