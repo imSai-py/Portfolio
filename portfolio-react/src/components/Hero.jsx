@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const typedStrings = [
-  'Computer Science Student & Problem Solver',
-  'Building Clean, User-Friendly Websites',
-  'Web Developer | Crafting Minimal & Modern Digital Experiences',
+  'Backend Developer & System Architect',
+  'Building REST APIs in Python & Java',
+  'Crafting Modern, Scalable Web Applications',
 ]
 
 import AnimatedVisual from './AnimatedVisual'
@@ -82,7 +82,12 @@ export default function Hero() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="z-10 space-y-6 max-w-4xl w-full"
       >
-
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-container/10 border border-primary-container/20">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span className="font-mono text-xs text-primary-container font-semibold uppercase tracking-wider">
+            Backend Developer
+          </span>
+        </div>
 
         <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-on-surface">
           Sai Lakshman<span className="text-primary-container">.</span>
@@ -104,13 +109,13 @@ export default function Hero() {
           >
             <button 
               onClick={() => handleScrollTo('projects')}
-              className="bg-primary-fixed-dim text-on-primary-fixed px-8 py-4 rounded-xl font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2"
+              className="bg-primary-fixed-dim text-on-primary-fixed px-8 py-4 rounded-xl font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
             >
               View my work
             </button>
             <button 
               onClick={() => handleScrollTo('contact')}
-              className="glass-panel px-8 py-4 rounded-xl font-bold tracking-tight text-on-surface hover:bg-surface-container-high transition-all"
+              className="glass-panel px-8 py-4 rounded-xl font-bold tracking-tight text-on-surface hover:bg-surface-container-high transition-all cursor-pointer"
             >
               Get in Touch
             </button>

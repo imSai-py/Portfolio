@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link } from 'react'
 import useReveal from '../hooks/useReveal'
 import { motion } from 'framer-motion'
 
@@ -18,11 +18,11 @@ const workDetails = {
   1: {
     title: 'ExpenseSnap',
     heroImg: strechImg1,
-    description: 'ExpenseSnap is a web application that allows users to track their expenses and manage their budgets. It is a simple and easy-to-use application that helps users to keep track of their expenses and manage their budgets.',
-    quote: '"ExpenseSnap: The effortless way to track your expenses and master your budget."',
+    description: 'Built and shipped a personal finance PWA: a modular Flask REST API with 20+ endpoints, PostgreSQL schema managed with Flask-Migrate, expense CRUD, income tracking, and real-time analytics dashboard. Added receipt scanning with Google Gemini Vision API, SnapBot LLM assistant, CSV/XLS bulk import, ReportLab PDF reports, monthly budget alerts, and Web Push notifications over VAPID.',
+    quote: '"ExpenseSnap: Personal finance powered by Flask REST APIs, PostgreSQL, and Google Gemini Vision AI."',
     liveUrl: 'https://expensesnap-a1995.web.app/',
     codeUrl: 'https://github.com/imSai-py/ExpenseSnap',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
+    tags: ['React 19', 'TypeScript', 'Python Flask', 'PostgreSQL', 'SQLAlchemy', 'Google Gemini Vision', 'Firebase', 'Web Push'],
     gallery: [
       { img: work001_02, label: 'Register Page' },
       { img: work001_04, label: 'Login Page' },
@@ -32,11 +32,11 @@ const workDetails = {
   2: {
     title: 'UserProfileManagement',
     heroImg: strechImg2,
-    description: 'UserProfileManagement is a web application that allows users to manage their profiles and update their information. It is a simple and easy-to-use application that helps users to keep track of their profiles and update their information.',
-    quote: '"UserProfileManagement: The effortless way to manage your profiles and update your information."',
+    description: 'Built and deployed UserProfile Manager, a Django web application with user registration, session-based authentication, profile photo upload, and editable bio data on SQLite. Structured on Django MVT pattern with server-side form validation and tuned SQLite query patterns.',
+    quote: '"UserProfileManagement: Robust Django profile management built on MVT architecture."',
     liveUrl: 'https://user-profile-management-nine.vercel.app',
     codeUrl: 'https://github.com/imSai-py/UserProfileManagement',
-    tags: ['Python', 'Django', 'SQLite'],
+    tags: ['Python', 'Django', 'SQLite', 'MVT', 'REST API'],
     gallery: [
       { img: work002_01, label: 'Register Page' },
       { img: work002_02, label: 'Login Page' },
@@ -44,13 +44,13 @@ const workDetails = {
     fullImg: { img: work002_03, label: 'Home Page' },
   },
   3: {
-    title: 'Portfolio',
+    title: 'Portfolio Architect',
     heroImg: strechImg3,
-    description: 'Portfolio is a web application that allows users to showcase their work and projects. It is a simple and easy-to-use application that helps users to keep track of their work and projects.',
-    quote: '"Portfolio: Showcase your work in style."',
+    description: 'Modern full-stack portfolio showcasing backend developer projects, skills, and interactive resume viewer with glassmorphic aesthetic, dark theme, responsive layouts, and smooth animations.',
+    quote: '"Portfolio Architect: Showcasing backend engineering and full-stack craft."',
     liveUrl: 'https://portfolio-sai-lakshmans-projects-2627b503.vercel.app/',
     codeUrl: 'https://github.com/imSai-py/Portfolio',
-    tags: ['HTML', 'CSS', 'Flask', 'Vercel'],
+    tags: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Vite'],
     gallery: [],
     fullImg: { img: work003_03, label: 'Home Page' },
   },
@@ -128,30 +128,30 @@ export default function WorkDetailPage() {
             {work.tags.map(tag => (
               <span
                 key={tag}
-                className="px-3 py-1 text-[10px] font-medium text-accent bg-accent/8 border border-accent/15 rounded-full"
+                className="px-3 py-1 text-[10px] font-mono text-primary-container bg-primary-container/10 border border-primary-container/20 rounded-full"
               >
                 {tag}
               </span>
             ))}
           </div>
 
-          <p ref={descRef} className="reveal-base text-base leading-relaxed text-text-muted mb-8">
+          <p ref={descRef} className="reveal-base text-base leading-relaxed text-on-surface-variant mb-8">
             {work.description}
           </p>
 
           {/* Quote */}
-          <blockquote ref={quoteRef} className="reveal-base relative px-8 py-6 my-10 glass-card border-l-[3px] border-l-accent text-base text-text-muted italic">
+          <blockquote ref={quoteRef} className="reveal-base relative px-8 py-6 my-10 glass-panel rounded-2xl border-l-4 border-l-primary-container text-base text-on-surface italic">
             <p className="mb-2">{work.quote}</p>
-            <small className="block text-right text-text-dim not-italic text-xs">— Sai Lakshman</small>
+            <small className="block text-right text-on-surface-variant not-italic text-xs font-mono">— Sai Lakshman</small>
           </blockquote>
 
           {/* Action Buttons */}
-          <div ref={actionsRef} className="reveal-base flex justify-center gap-4 flex-wrap my-10 pt-8 border-t border-glass-border">
+          <div ref={actionsRef} className="reveal-base flex justify-center gap-4 flex-wrap my-10 pt-8 border-t border-outline-variant/15">
             <a
               href={work.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gradient inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-semibold tracking-[0.08em] uppercase text-white rounded-full transition-all duration-300 hover:-translate-y-[2px]"
+              className="bg-gradient-to-r from-primary-container to-secondary-container hover:from-primary-fixed-dim hover:to-secondary text-white font-bold px-6 py-2.5 rounded-xl shadow-lg transition-all text-xs uppercase tracking-wider inline-flex items-center gap-2"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                 <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
@@ -162,7 +162,7 @@ export default function WorkDetailPage() {
               href={work.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-glass inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-semibold tracking-[0.08em] uppercase text-text rounded-full transition-all duration-300 hover:-translate-y-[2px]"
+              className="bg-surface-container/80 border border-outline-variant/30 text-on-surface hover:text-white px-6 py-2.5 rounded-xl transition-all text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
@@ -179,9 +179,9 @@ export default function WorkDetailPage() {
                   <img
                     src={img}
                     alt={`${work.title} ${label}`}
-                    className="w-full rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.4)] border border-glass-border mb-2"
+                    className="w-full rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.4)] border border-outline-variant/20 mb-2"
                   />
-                  <p className="text-xs text-text-dim">{label}</p>
+                  <p className="text-xs text-on-surface-variant font-mono">{label}</p>
                 </div>
               ))}
             </div>
@@ -193,9 +193,9 @@ export default function WorkDetailPage() {
               <img
                 src={work.fullImg.img}
                 alt={`${work.title} ${work.fullImg.label}`}
-                className="w-full rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.4)] border border-glass-border mb-2"
+                className="w-full rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.4)] border border-outline-variant/20 mb-2"
               />
-              <p className="text-xs text-text-dim">{work.fullImg.label}</p>
+              <p className="text-xs text-on-surface-variant font-mono">{work.fullImg.label}</p>
             </div>
           )}
         </div>

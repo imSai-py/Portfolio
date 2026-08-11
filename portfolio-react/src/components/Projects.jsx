@@ -7,49 +7,49 @@ import work01Img from '../assets/images/work01-hover.jpg.jpg'
 import work02Img from '../assets/images/work02-hover.jpg'
 import work03Img from '../assets/images/work03-hover.jpg'
 
-const filters = ['All', 'Frontend', 'Backend', 'Fullstack', 'Other']
+const filters = ['All', 'Backend', 'Fullstack', 'Frontend']
 
 const projects = [
   {
     id: 1,
     title: 'ExpenseSnap',
-    description: 'ExpenseSnap is a web application to track expenses and manage budgets — a simple, efficient solution for personal finance.',
+    description: 'Personal Finance PWA with 20+ REST API endpoints, PostgreSQL schema, Google Gemini Vision receipt scanning, SnapBot LLM assistant, and Web Push alerts.',
     image: work01Img,
-    tags: ['HTML', 'CSS', 'JavaScript', 'Firebase'],
-    categories: ['Frontend', 'Backend', 'Fullstack'],
+    tags: ['Python Flask', 'React 19', 'PostgreSQL', 'Gemini Vision AI', 'Firebase'],
+    categories: ['Backend', 'Fullstack'],
     liveUrl: 'https://expensesnap-a1995.web.app/',
     codeUrl: 'https://github.com/imSai-py/ExpenseSnap',
     detailPath: '/work/1',
     span: 'col-span-12 lg:col-span-8',
-    categoryLabel: 'FINTECH ARCHITECTURE',
+    categoryLabel: 'FINTECH & AI BACKEND',
     video: '/videos/ExpenseSnap.mp4'
   },
   {
     id: 2,
-    title: 'UserProfileManage',
-    description: 'A profile management tool for creating, updating, and organizing user information with a clean Django-based architecture.',
+    title: 'UserProfileManagement',
+    description: 'Django web application with MVT pattern, session-based authentication, user registration, bio data management, and tuned SQLite query patterns.',
     image: work02Img,
-    tags: ['Python', 'Django', 'SQLite'],
-    categories: ['Frontend', 'Backend', 'Fullstack'],
+    tags: ['Python', 'Django', 'SQLite', 'REST API'],
+    categories: ['Backend', 'Fullstack'],
     liveUrl: 'https://user-profile-management-nine.vercel.app/',
     codeUrl: 'https://github.com/imSai-py/UserProfileManagement',
     detailPath: '/work/2',
     span: 'col-span-12 lg:col-span-4',
-    categoryLabel: 'DATA MANAGEMENT',
+    categoryLabel: 'DATA MANAGEMENT & AUTH',
     video: '/videos/UserProfileManagement.mp4'
   },
   {
     id: 3,
     title: 'Portfolio Architect',
-    description: 'A minimal, responsive portfolio showcasing projects and skills — built with modern web technologies and deployed on Vercel.',
+    description: 'Modern developer portfolio showcasing backend engineering projects, skills, and resume with glassmorphism design, responsive layouts, and animations.',
     image: work03Img,
-    tags: ['React', 'Framer Motion', 'Tailwind'],
+    tags: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion'],
     categories: ['Frontend', 'Fullstack'],
     liveUrl: 'https://portfolio-sai-lakshmans-projects-2627b503.vercel.app/',
     codeUrl: 'https://github.com/imSai-py/Portfolio',
     detailPath: '/work/3',
     span: 'col-span-12 lg:col-span-12',
-    categoryLabel: 'INTERNAL TOOLING',
+    categoryLabel: 'WEB ARCHITECTURE',
     video: '/videos/Portfolio.mp4'
   },
 ]
